@@ -79,5 +79,10 @@ public class UserAdapter implements IUserRepository {
         userJpaRepository.delete(user);
         return !userJpaRepository.findById(id).isPresent();
     }
+
+    public UserResponse getUserByEmail(String email){
+        User user = userJpaRepository.findByEmail(email);
+        return userMapper.toUserResponse(user);
+    }
 }
 

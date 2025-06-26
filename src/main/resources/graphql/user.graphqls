@@ -4,6 +4,10 @@ type UserResponse
     username:String!
     email:String!
 }
+type LoginResponse{
+    id:Int
+    success: Boolean!
+}
 input LoginInput
 {
     email:String!
@@ -27,5 +31,5 @@ extend type Mutation
     createUser(input : UserInput!) : UserResponse
     deleteUser(id : Int!) : Boolean
     updateUser(id : Int!, input :UserInput! ) : UserResponse
-    login(input : LoginInput!) : Boolean
+    login(input : LoginInput!) : LoginResponse
 }
