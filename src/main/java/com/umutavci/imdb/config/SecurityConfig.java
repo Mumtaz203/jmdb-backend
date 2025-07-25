@@ -43,8 +43,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
-                .formLogin(Customizer.withDefaults())
-                .httpBasic(Customizer.withDefaults());
+                .authorizeHttpRequests(authorize -> authorize 
+                        .requestMatchers("/graphql/**", "/graphiql/**").permitAll() 
+                        .anyRequest().authenticated() 
+                )
+                .formLogin(Customizer.withDefaults()) 
+                .httpBasic(Customizer.withDefaults()); 
 
         return http.build();
     }

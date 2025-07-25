@@ -7,7 +7,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/imdb
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_PASSWORD: 2035
     depends_on:
       - db
 
@@ -18,7 +18,6 @@ services:
     environment:
       POSTGRES_DB: imdb
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: 2035
     ports:
-      - "5432:5432"
-
+      - "5433:5432"

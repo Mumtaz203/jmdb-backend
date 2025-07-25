@@ -1,35 +1,43 @@
 type UserResponse
 {
-    id:Int!
-    username:String!
-    email:String!
+  id:Int!
+  username:String!
+  email:String!
 }
+
 type LoginResponse{
-    id:Int
-    success: Boolean!
+  id:Int
+  success: Boolean!
+  token: String
 }
+
 input LoginInput
 {
-    email:String!
-    pass:String!
+  email:String!
+  pass:String!
 }
 
 input UserInput
 {
-    email:String!
-    username:String!
-    pass:String!
+  email:String!
+  username:String!
+  pass:String!
 }
+
 extend type Query
 {
-    getUser(id : Int!) : UserResponse
-    getAllUsers : [UserResponse!]!
-    me : String
+  getUser(id : Int!) : UserResponse
+  getAllUsers : [UserResponse!]!
+  me : String
+  getUserWatchlist(userId: Int!): [MovieResponse!]!
 }
+
 extend type Mutation
 {
-    createUser(input : UserInput!) : UserResponse
-    deleteUser(id : Int!) : Boolean
-    updateUser(id : Int!, input :UserInput! ) : UserResponse
-    login(input : LoginInput!) : LoginResponse
+  createUser(input : UserInput!) : UserResponse
+  deleteUser(id : Int!) : Boolean
+  updateUser(id : Int!, input :UserInput! ) : UserResponse
+  login(input : LoginInput!) : LoginResponse
+  addMovieToUserWatchlist(userId: Int!, movieId: Int!): Boolean
+  removeMovieFromUserWatchlist(userId: Int!, movieId: Int!): Boolean
 }

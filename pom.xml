@@ -5,8 +5,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>3.2.0</version>
+        <relativePath/> 
     </parent>
     <groupId>com.umutavci</groupId>
     <artifactId>imdb</artifactId>
@@ -26,8 +26,8 @@
         <tag/>
         <url/>
     </scm>
-    <properties>
-        <java.version>23</java.version>
+<properties>
+        <java.version>17</java.version> 
     </properties>
     <dependencies>
         <dependency>

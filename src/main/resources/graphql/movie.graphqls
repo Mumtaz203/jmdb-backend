@@ -1,20 +1,29 @@
 type MovieResponse
 {
     id: Int!
-    title:String!
-    releaseDate:Date!
-    genre:String
-    description:String
-    directorId:Int
+    title: String!
+    releaseDate: Date!
+    genre: String
+    description: String
+    directorId: Int
+    rating: Float
+    imageUrl: String
+    duration: String
+    stars: [ActorResponse!]
 }
+
 input MovieInput
 {
-    title:String!
-    releaseDate:Date!
-    genre:String
-    description:String
-    directorId:Int
+    title: String!
+    releaseDate: Date!
+    genre: String
+    description: String
+    directorId: Int
+    rating: Float # Eğer MovieInput içinde de rating varsa
+    imageUrl: String 
+    duration: String 
 }
+
 extend type Query
 {
     getMovie(id : Int!) : MovieResponse
@@ -23,7 +32,7 @@ extend type Query
     sortMovieByDescName : [MovieResponse!]!
     sortMovieByBetterReviewPoint : [MovieResponse!]!
     showAllActorsInMovie(movieId : Int!) : [ActorResponse!]!
-    findAverageRankingInMovie(movieId : Int!) : Int!
+    findAverageRankingInMovie(movieId : Int!) : Float!
 }
 extend type Mutation
 {

@@ -17,6 +17,7 @@ public class UserMutationResolver {
     public UserMutationResolver(UserService userService) {
         this.userService = userService;
     }
+
     @MutationMapping
     public UserResponse createUser(@Argument UserInput input){
         return userService.create(input);
@@ -30,5 +31,19 @@ public class UserMutationResolver {
     @PreAuthorize("isAuthenticated()")
     public UserResponse updateUser(@Argument Long id, @Argument UserInput input){
         return userService.update(id, input);
+    }
+
+    @MutationMapping
+    @PreAuthorize("isAuthenticated()")
+    public Boolean addMovieToUserWatchlist(@Argument Long userId, @Argument Long movieId){
+        userService.addMovieToWatchlist(userId, movieId);
+        return true;
+    }
+
+    @MutationMapping
+    @PreAuthorize("isAuthenticated()")
+    public Boolean removeMovieFromUserWatchlist(@Argument Long userId, @Argument Long movieId){
+        userService.removeMovieFromWatchlist(userId, movieId);
+        return true;
     }
 }

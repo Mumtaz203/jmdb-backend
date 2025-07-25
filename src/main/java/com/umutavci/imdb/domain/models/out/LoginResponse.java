@@ -7,4 +7,5 @@ import lombok.Data;
 public class LoginResponse extends Base {
     private Long id;
     private Boolean success;
+    private String token;
 }

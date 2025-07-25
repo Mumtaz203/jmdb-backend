@@ -3,18 +3,24 @@ type ActorResponse
     id: Int!
     name: String!
     birthDate: Date!
+    role: String
+    imageUrl: String 
 }
+
 input ActorInput
 {
     name: String!
     birthDate: Date!
+    role: String 
+    imageUrl: String 
 }
+
 extend type Query
 {
     getActor(id : Int!) : ActorResponse
     getAllActors : [ActorResponse!]!
-
 }
+
 extend type Mutation
 {
     createActor(input : ActorInput!) : ActorResponse
