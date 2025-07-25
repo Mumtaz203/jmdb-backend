@@ -15,6 +15,7 @@ input MovieInput
     description:String
     directorId:Int
 }
+
 extend type Query
 {
     getMovie(id : Int!) : MovieResponse

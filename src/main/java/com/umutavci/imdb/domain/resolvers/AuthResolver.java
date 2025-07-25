@@ -33,12 +33,14 @@ public class AuthResolver {
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        LoginResponse loginResponse = new LoginResponse();
-        loginResponse.setSuccess(authentication.isAuthenticated());
         if(authentication.isAuthenticated()){
-            loginResponse.setId(userAdapter.getUserByEmail(input.getEmail()).getId());
+            Long userId=userAdapter.getUserByEmail(input.getEmail()).getId();
+            return new LoginResponse(userId,true);
         }
-        return loginResponse;
+        else{
+            return new LoginResponse(null,false);
+        }
+
     }
 
     @QueryMapping
