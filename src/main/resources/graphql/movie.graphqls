@@ -27,6 +27,8 @@ extend type Query
     showAllActorsInMovie(movieId : Int!) : [ActorResponse!]
     findAverageRankingInMovie(movieId : Int!) : Int!
     showAllReviewsInMovie(movieId : Int!) : [ReviewResponse!]
+
+    showWatchList(userId:Int!):[MovieResponse!]
 }
 extend type Mutation
 {
@@ -36,4 +38,6 @@ extend type Mutation
     addActorInMovie(movieId: Int!, actorId: Int!) : [ActorResponse!]!
     removeActorInMovie(movieId:Int!, actorId : Int!) : [ActorResponse!]!
     addReviewInMovie(movieId:Int! , reviewId:Int!): [ReviewResponse!]!
+
+    addMovieToWatchList(movieId:Int! , userId:Int!):[MovieResponse!]!
 }

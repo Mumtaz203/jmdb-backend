@@ -8,13 +8,11 @@ import com.umutavci.imdb.domain.ports.repositories.IMovieRepository;
 import com.umutavci.imdb.infrastructure.persistence.entities.Actor;
 import com.umutavci.imdb.infrastructure.persistence.entities.Movie;
 import com.umutavci.imdb.infrastructure.persistence.entities.Review;
+import com.umutavci.imdb.infrastructure.persistence.entities.User;
 import com.umutavci.imdb.infrastructure.persistence.mapper.ActorMapper;
 import com.umutavci.imdb.infrastructure.persistence.mapper.MovieMapper;
 import com.umutavci.imdb.infrastructure.persistence.mapper.ReviewMapper;
-import com.umutavci.imdb.infrastructure.persistence.repositories.ActorJpaRespository;
-import com.umutavci.imdb.infrastructure.persistence.repositories.DirectorJpaRepository;
-import com.umutavci.imdb.infrastructure.persistence.repositories.MovieJpaRepository;
-import com.umutavci.imdb.infrastructure.persistence.repositories.ReviewJpaRepository;
+import com.umutavci.imdb.infrastructure.persistence.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +39,8 @@ public class MovieAdapter implements IMovieRepository {
     private final ActorMapper actorMapper;
     @Autowired
     private ReviewMapper reviewMapper;
+    @Autowired
+    private UserJpaRepository userJpaRepository;
 
     public MovieAdapter(MovieJpaRepository movieJpaRepository, ReviewJpaRepository reviewJpaRepository, ActorJpaRespository actorJpaRespository, MovieMapper movieMapper, DirectorJpaRepository directorJpaRepository, ActorMapper actorMapper) {
         this.movieJpaRepository = movieJpaRepository;
@@ -192,6 +192,26 @@ public class MovieAdapter implements IMovieRepository {
         return movieJpaRepository.findById(movieId).orElseThrow()
                 .getReviewList()
                 .stream().map(reviewMapper::toReviewResponse)
+                .toList();
+    }
+
+    @Override
+    public List<MovieResponse> addMovieToWatchList(Long movieId, Long userId) {
+        Movie movie = movieJpaRepository.findById(movieId).orElseThrow();
+        User user = userJpaRepository.findById(userId).orElseThrow();
+        user.getMovies().add(movie);
+        userJpaRepository.save(user);
+        return userJpaRepository.findById(userId).orElseThrow()
+                .getMovies()
+                .stream().map(movieMapper::toMovieResponse)
+                .toList();
+    }
+
+    @Override
+    public List<MovieResponse> showWatchList(Long userId) {
+        return userJpaRepository.findById(userId).orElseThrow()
+                .getMovies()
+                .stream().map(movieMapper::toMovieResponse)
                 .toList();
     }
 

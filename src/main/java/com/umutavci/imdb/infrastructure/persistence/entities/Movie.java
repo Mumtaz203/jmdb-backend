@@ -29,8 +29,8 @@ public class Movie extends BaseEntity{
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id")
     )
-
-
     private List<Actor> actors;
+    @ManyToMany(mappedBy = "movies")
+    private List<User> usersWatching;
 
 }

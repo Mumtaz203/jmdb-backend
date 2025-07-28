@@ -1,10 +1,7 @@
 package com.umutavci.imdb.infrastructure.persistence.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,4 +18,11 @@ public class User extends BaseEntity{
     @JsonManagedReference
     private List<Review> reviews;
     private String pass;
+    @ManyToMany
+    @JoinTable(
+            name = "user_watchlist",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "movie_id")
+    )
+    private List<Movie> movies;
 }

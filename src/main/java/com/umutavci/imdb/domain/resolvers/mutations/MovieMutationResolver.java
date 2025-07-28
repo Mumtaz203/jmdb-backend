@@ -44,4 +44,9 @@ public class MovieMutationResolver {
     public List<ReviewResponse> addReviewInMovie(@Argument Long movieId, @Argument Long reviewId){
         return movieService.addReviewInMovie(movieId, reviewId);
     }
+
+    @MutationMapping
+    public List<MovieResponse> addMovieToWatchList(@Argument Long movieId, @Argument Long userId){
+        return movieService.addMovieToWatchList(movieId, userId);
+    }
 }

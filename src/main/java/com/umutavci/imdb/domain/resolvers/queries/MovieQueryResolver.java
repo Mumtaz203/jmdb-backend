@@ -52,5 +52,9 @@ public class MovieQueryResolver {
     public List<ReviewResponse> showAllReviewsInMovie(@Argument Long movieId){
         return movieService.showAllReviewsInMovie(movieId);
     }
+    @QueryMapping
+    public List<MovieResponse> showWatchList(@Argument Long userId){
+        return movieService.showWatchList(userId);
+    }
 
 }

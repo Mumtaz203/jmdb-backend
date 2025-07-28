@@ -19,4 +19,7 @@ public interface IMovieRepository extends IBaseRepository<MovieInput, MovieRespo
     List<ReviewResponse> addReviewInMovie(Long movieId, Long reviewId);
     List<ReviewResponse> showAllReviewsInMovie(Long movieId);
 
+    List<MovieResponse> addMovieToWatchList(Long movieId, Long userId);
+    List<MovieResponse> showWatchList(Long userId);
+
 }
