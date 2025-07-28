@@ -14,7 +14,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/graphql")
-                        .allowedOrigins("http://localhost:5173") // frontend'in çalıştığı port
+                        .allowedOrigins("*") // frontend'in çalıştığı port
                         .allowedMethods("GET", "POST","PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
             }

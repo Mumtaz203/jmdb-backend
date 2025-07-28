@@ -6,6 +6,7 @@ type MovieResponse
     genre:String
     description:String
     directorId:Int
+
 }
 input MovieInput
 {
@@ -23,8 +24,9 @@ extend type Query
     searchMovieByName(name : String) : [MovieResponse!]!
     sortMovieByDescName : [MovieResponse!]!
     sortMovieByBetterReviewPoint : [MovieResponse!]!
-    showAllActorsInMovie(movieId : Int!) : [ActorResponse!]!
+    showAllActorsInMovie(movieId : Int!) : [ActorResponse!]
     findAverageRankingInMovie(movieId : Int!) : Int!
+    showAllReviewsInMovie(movieId : Int!) : [ReviewResponse!]
 }
 extend type Mutation
 {
@@ -33,4 +35,5 @@ extend type Mutation
     updateMovie(id : Int!, input :MovieInput! ) : MovieResponse
     addActorInMovie(movieId: Int!, actorId: Int!) : [ActorResponse!]!
     removeActorInMovie(movieId:Int!, actorId : Int!) : [ActorResponse!]!
+    addReviewInMovie(movieId:Int! , reviewId:Int!): [ReviewResponse!]!
 }

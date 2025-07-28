@@ -3,12 +3,14 @@ package com.umutavci.imdb.infrastructure.persistence.adapters;
 import com.umutavci.imdb.domain.models.in.MovieInput;
 import com.umutavci.imdb.domain.models.out.ActorResponse;
 import com.umutavci.imdb.domain.models.out.MovieResponse;
+import com.umutavci.imdb.domain.models.out.ReviewResponse;
 import com.umutavci.imdb.domain.ports.repositories.IMovieRepository;
 import com.umutavci.imdb.infrastructure.persistence.entities.Actor;
 import com.umutavci.imdb.infrastructure.persistence.entities.Movie;
 import com.umutavci.imdb.infrastructure.persistence.entities.Review;
 import com.umutavci.imdb.infrastructure.persistence.mapper.ActorMapper;
 import com.umutavci.imdb.infrastructure.persistence.mapper.MovieMapper;
+import com.umutavci.imdb.infrastructure.persistence.mapper.ReviewMapper;
 import com.umutavci.imdb.infrastructure.persistence.repositories.ActorJpaRespository;
 import com.umutavci.imdb.infrastructure.persistence.repositories.DirectorJpaRepository;
 import com.umutavci.imdb.infrastructure.persistence.repositories.MovieJpaRepository;
@@ -37,6 +39,8 @@ public class MovieAdapter implements IMovieRepository {
     private final DirectorJpaRepository directorJpaRepository;
 
     private final ActorMapper actorMapper;
+    @Autowired
+    private ReviewMapper reviewMapper;
 
     public MovieAdapter(MovieJpaRepository movieJpaRepository, ReviewJpaRepository reviewJpaRepository, ActorJpaRespository actorJpaRespository, MovieMapper movieMapper, DirectorJpaRepository directorJpaRepository, ActorMapper actorMapper) {
         this.movieJpaRepository = movieJpaRepository;
@@ -169,6 +173,26 @@ public class MovieAdapter implements IMovieRepository {
                 .mapToDouble(Review::getRating)
                 .sum();
         return sum / reviews.size();
+    }
+
+    @Override
+    public List<ReviewResponse> addReviewInMovie(Long movieId, Long reviewId) {
+        Movie movie = movieJpaRepository.findById(movieId).orElseThrow();
+        Review review = reviewJpaRepository.findById(reviewId).orElseThrow();
+        movie.getReviewList().add(review);
+        movieJpaRepository.save(movie);
+        return movieJpaRepository.findById(movieId).orElseThrow()
+                .getReviewList()
+                .stream().map(reviewMapper::toReviewResponse)
+                .toList();
+    }
+
+    @Override
+    public List<ReviewResponse> showAllReviewsInMovie(Long movieId) {
+        return movieJpaRepository.findById(movieId).orElseThrow()
+                .getReviewList()
+                .stream().map(reviewMapper::toReviewResponse)
+                .toList();
     }
 
 }

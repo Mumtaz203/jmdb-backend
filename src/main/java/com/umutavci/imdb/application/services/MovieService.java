@@ -1,10 +1,11 @@
 package com.umutavci.imdb.application.services;
-
+//2
 import com.umutavci.imdb.domain.models.in.DirectorInput;
 import com.umutavci.imdb.domain.models.in.MovieInput;
 import com.umutavci.imdb.domain.models.out.ActorResponse;
 import com.umutavci.imdb.domain.models.out.DirectorResponse;
 import com.umutavci.imdb.domain.models.out.MovieResponse;
+import com.umutavci.imdb.domain.models.out.ReviewResponse;
 import com.umutavci.imdb.domain.ports.repositories.IBaseRepository;
 import com.umutavci.imdb.domain.ports.repositories.IMovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +39,8 @@ public class MovieService implements BaseService<MovieInput, MovieResponse>{
     public List<ActorResponse> removeActorInMovie(Long movieId, Long actorId){ return repository.removeActorInMovie(movieId, actorId); }
     public List<ActorResponse> showAllActorsInMovie(Long movieId){ return repository.showAllActorsInMovie(movieId); }
     public Double findAverageRankingInMovie(Long movieId){ return repository.findAverageRankingInMovie(movieId); }
+
+    public List<ReviewResponse> addReviewInMovie(Long movieId,Long reviewId){return repository.addReviewInMovie(movieId,reviewId); }
+    public List<ReviewResponse> showAllReviewsInMovie(Long movieId){ return repository.showAllReviewsInMovie(movieId); }
+
 }
