@@ -22,4 +22,6 @@ public interface IMovieRepository extends IBaseRepository<MovieInput, MovieRespo
     List<MovieResponse> addMovieToWatchList(Long movieId, Long userId);
     List<MovieResponse> showWatchList(Long userId);
 
+    List<MovieResponse> removeMovieFromWatchList(Long movieId, Long userId);
+
 }

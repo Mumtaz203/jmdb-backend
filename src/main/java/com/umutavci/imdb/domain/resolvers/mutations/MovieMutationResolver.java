@@ -49,4 +49,8 @@ public class MovieMutationResolver {
     public List<MovieResponse> addMovieToWatchList(@Argument Long movieId, @Argument Long userId){
         return movieService.addMovieToWatchList(movieId, userId);
     }
+    @MutationMapping
+    public List<MovieResponse> removeMovieFromWatchList(@Argument Long movieId , @Argument Long userId){
+        return movieService.removeMovieFromWatchList(movieId, userId);
+    }
 }

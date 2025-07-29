@@ -142,17 +142,6 @@ public class MovieAdapter implements IMovieRepository {
                 .toList();
     }
 
-    @Override
-    public List<ActorResponse> removeActorInMovie(Long movieId, Long actorId) {
-        Movie movie = movieJpaRepository.findById(movieId).orElseThrow();
-        Actor actor = actorJpaRespository.findById(actorId).orElseThrow();
-        movie.getActors().remove(actor);
-        movieJpaRepository.save(movie);
-        return movieJpaRepository.findById(movieId).orElseThrow()
-                .getActors()
-                .stream().map(actorMapper::toActorResponse)
-                .toList();
-    }
 
     @Override
     public List<ActorResponse> showAllActorsInMovie(Long movieId) {
@@ -212,6 +201,30 @@ public class MovieAdapter implements IMovieRepository {
         return userJpaRepository.findById(userId).orElseThrow()
                 .getMovies()
                 .stream().map(movieMapper::toMovieResponse)
+                .toList();
+    }
+
+    @Override
+    public List<MovieResponse> removeMovieFromWatchList(Long movieId, Long userId) {
+        Movie movie = movieJpaRepository.findById(movieId).orElseThrow();
+        User user = userJpaRepository.findById(userId).orElseThrow();
+        user.getMovies().remove(movie);
+        userJpaRepository.save(user);
+        return userJpaRepository.findById(userId).orElseThrow()
+                .getMovies()
+                .stream().map(movieMapper::toMovieResponse)
+                .toList();
+    }
+
+    @Override
+    public List<ActorResponse> removeActorInMovie(Long movieId, Long actorId) {
+        Movie movie = movieJpaRepository.findById(movieId).orElseThrow();
+        Actor actor = actorJpaRespository.findById(actorId).orElseThrow();
+        movie.getActors().remove(actor);
+        movieJpaRepository.save(movie);
+        return movieJpaRepository.findById(movieId).orElseThrow()
+                .getActors()
+                .stream().map(actorMapper::toActorResponse)
                 .toList();
     }
 

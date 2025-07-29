@@ -39,5 +39,6 @@ extend type Mutation
     removeActorInMovie(movieId:Int!, actorId : Int!) : [ActorResponse!]!
     addReviewInMovie(movieId:Int! , reviewId:Int!): [ReviewResponse!]!
 
+    removeMovieFromWatchList(movieId:Int! , userId:Int!): [MovieResponse!]!
     addMovieToWatchList(movieId:Int! , userId:Int!):[MovieResponse!]!
 }

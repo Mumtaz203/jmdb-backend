@@ -45,5 +45,6 @@ public class MovieService implements BaseService<MovieInput, MovieResponse>{
 
     public List <MovieResponse> addMovieToWatchList(Long movieId,Long userId){return repository.addMovieToWatchList(movieId,userId); }
     public List <MovieResponse> showWatchList(Long userId){ return repository.showWatchList(userId); }
+    public List<MovieResponse> removeMovieFromWatchList(Long movieId,Long userId){ return repository.removeMovieFromWatchList(movieId,userId); }
 
 }
