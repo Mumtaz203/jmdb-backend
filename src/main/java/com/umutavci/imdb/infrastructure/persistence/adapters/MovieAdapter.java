@@ -163,7 +163,7 @@ public class MovieAdapter implements IMovieRepository {
     }
 
     @Override
-    public Double findAverageRankingInMovie(Long movieId) {
+    public Float findAverageRankingInMovie(Long movieId) {
         List<Review> reviews = reviewJpaRepository
                 .findAll()
                 .stream()
@@ -172,7 +172,7 @@ public class MovieAdapter implements IMovieRepository {
         double sum = reviews.stream()
                 .mapToDouble(Review::getRating)
                 .sum();
-        return sum / reviews.size();
+        return (float) sum / reviews.size();
     }
 
     @Override

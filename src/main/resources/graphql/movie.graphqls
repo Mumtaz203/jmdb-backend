@@ -25,7 +25,7 @@ extend type Query
     sortMovieByDescName : [MovieResponse!]!
     sortMovieByBetterReviewPoint : [MovieResponse!]!
     showAllActorsInMovie(movieId : Int!) : [ActorResponse!]
-    findAverageRankingInMovie(movieId : Int!) : Int!
+    findAverageRankingInMovie(movieId : Int!) : Float
     showAllReviewsInMovie(movieId : Int!) : [ReviewResponse!]
 
     showWatchList(userId:Int!):[MovieResponse!]

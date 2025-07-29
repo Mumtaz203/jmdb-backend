@@ -44,7 +44,7 @@ public class MovieQueryResolver {
         return movieService.showAllActorsInMovie(movieId);
     }
     @QueryMapping
-    public Double findAverageRankingInMovie(@Argument Long movieId){
+    public Float findAverageRankingInMovie(@Argument Long movieId){
         return movieService.findAverageRankingInMovie(movieId);
     }
 
