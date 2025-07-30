@@ -238,6 +238,30 @@ COPY public.actors (id, created_at, updated_at, birth_date, name) FROM stdin;
 38	2025-07-29 10:38:24.634502	2025-07-29 10:38:24.634514	1962-11-19	Jodie Foster
 39	2025-07-29 10:39:59.996024	2025-07-29 10:39:59.996034	1937-12-31	Anthony Hopkins
 40	2025-07-29 10:40:46.607163	2025-07-29 10:40:46.607174	1939-01-26	Scott Glenn
+41	2025-07-29 16:37:37.77028	2025-07-29 16:37:37.770294	1994-02-01	Julia Garner
+42	2025-07-29 16:38:06.373489	2025-07-29 16:38:06.3735	1968-02-12	Josh Brolin
+43	2025-07-29 16:38:32.711902	2025-07-29 16:38:32.711913	1989-11-22	Alden Ehrenreich
+44	2025-07-29 16:43:07.341057	2025-07-29 16:43:07.341066	1967-07-01	Pamela Anderson
+45	2025-07-29 16:43:44.564477	2025-07-29 16:43:44.564491	1986-10-15	Paul Walter Hauser
+46	2025-07-29 19:47:48.291579	2025-07-29 19:47:48.291591	1985-06-12	Dave Franco
+47	2025-07-29 19:48:37.614854	2025-07-29 19:48:37.614861	1982-12-29	Alison Brie
+48	2025-07-29 19:49:29.033993	2025-07-29 19:49:29.034003	1970-03-31	Damon Herriman
+49	2025-07-29 19:57:33.792986	2025-07-29 19:57:33.793005	2007-06-16	Billy Barratt
+50	2025-07-29 19:58:10.41976	2025-07-29 19:58:10.419767	1996-04-27	Billy Barratt
+51	2025-07-29 20:00:14.952036	2025-07-29 20:00:14.952044	2004-04-27	Mischa Heywood
+52	2025-07-29 20:20:50.056105	2025-07-29 20:20:50.056117	1968-11-05	Sam Rockwell
+53	2025-07-29 20:21:22.290504	2025-07-29 20:21:22.290512	1963-09-27	Marc Maron
+54	2025-07-29 20:21:49.42802	2025-07-29 20:21:49.428029	1971-10-25	Craig Robinson
+55	2025-07-29 20:25:08.893198	2025-07-29 20:25:08.893206	1974-02-13	Robbie Williams
+56	2025-07-29 20:25:44.288124	2025-07-29 20:25:44.288138	1992-07-17	Jonno Davies
+57	2025-07-29 20:26:10.53658	2025-07-29 20:26:10.536595	1967-09-01	Steve Pemberton
+58	2025-07-29 20:30:37.784103	2025-07-29 20:30:37.784112	1973-08-01	Philip Schurer
+59	2025-07-29 20:31:19.881339	2025-07-29 20:31:19.881346	1979-11-14	Olga Kurylenko
+60	2025-07-29 20:38:16.218052	2025-07-29 20:38:16.218086	1980-11-06	Ahmed Fahmy
+61	2025-07-29 20:42:20.551478	2025-07-29 20:42:20.55149	2003-01-28	Whitney Peak
+62	2025-07-29 20:42:58.203474	2025-07-29 20:42:58.203479	1952-11-28	S. Epatha Merkerson
+64	2025-07-29 20:46:49.263052	2025-07-29 20:46:49.263062	1989-01-09	Nina Dobrev
+65	2025-07-29 20:47:30.961728	2025-07-29 20:47:30.961739	1989-11-10	Sherry Cola
 \.
 
 
@@ -259,6 +283,16 @@ COPY public.directors (id, created_at, updated_at, birth_date, name) FROM stdin;
 12	2025-07-28 22:35:27.930398	2025-07-28 22:35:27.930405	1965-06-21	Lana Wachowski
 13	2025-07-28 22:36:08.077749	2025-07-28 22:36:08.077852	1970-07-30	Christopher Nolan
 14	2025-07-28 22:36:48.77598	2025-07-28 22:36:48.775988	1944-02-22	Jonathan Demme
+15	2025-07-29 16:35:14.372808	2025-07-29 16:35:14.372828	1981-03-01	Zach Cregger
+16	2025-07-29 16:40:57.343203	2025-07-29 16:40:57.343214	1977-12-01	Akiva Schaffer
+17	2025-07-29 19:45:36.245719	2025-07-29 19:45:36.245732	1970-12-15	Michael Shanks
+18	2025-07-29 19:56:35.736664	2025-07-29 19:56:35.736684	1992-11-13	Danny Philippou
+19	2025-07-29 20:19:46.116142	2025-07-29 20:19:46.11615	1984-08-16	JP Sans
+20	2025-07-29 20:24:06.500122	2025-07-29 20:24:06.500161	1976-01-06	Michael Gracey
+21	2025-07-29 20:29:20.999641	2025-07-29 20:29:20.999655	1976-07-14	Michael Gracey
+22	2025-07-29 20:37:13.808956	2025-07-29 20:37:13.80897	1970-06-13	Ahmad Nader Galal
+23	2025-07-29 20:41:21.531577	2025-07-29 20:41:21.531584	1988-06-27	Colin Tilley
+24	2025-07-29 20:45:17.89432	2025-07-29 20:45:17.894334	1978-10-09	Jennifer Cram
 \.
 
 
@@ -305,6 +339,31 @@ COPY public.movie_actor (movie_id, actor_id) FROM stdin;
 14	38
 14	39
 14	40
+15	41
+15	42
+15	43
+16	23
+16	44
+16	45
+17	46
+17	47
+17	48
+18	49
+18	50
+18	51
+19	52
+19	53
+19	54
+20	55
+20	56
+20	57
+21	58
+21	59
+22	60
+23	61
+23	62
+24	65
+24	64
 \.
 
 
@@ -326,6 +385,16 @@ COPY public.movies (id, created_at, updated_at, description, genre, release_date
 12	2025-07-29 09:42:10.869111	2025-07-29 09:42:10.869116	When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.	Epic , Action , Sci-Fi	1999-03-31	The Matrix	12
 13	2025-07-29 09:44:16.844562	2025-07-29 09:44:16.844568	When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.	Epic , Drama , Sci-Fi	2014-10-29	Interstellar	13
 14	2025-07-29 09:46:23.625159	2025-07-29 09:46:23.625176	A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.	Crime , Drama , Horror	1991-02-01	The Silence of the Lambs	14
+15	2025-07-29 16:35:29.684297	2025-07-29 16:35:29.684308	When all but one child from the same class mysteriously vanish on the same night at exactly the same time, a community is left questioning who or what is behind their disappearance.	Horror , Mystery	2025-08-08	Weapons	15
+16	2025-07-29 16:41:07.205653	2025-07-29 16:41:07.205664	Only one man has the particular set of skills - to lead Police Squad and save the world.	Crime , Comedy , Action	2025-08-01	The Naked Gun	16
+17	2025-07-29 19:45:45.551721	2025-07-29 19:45:45.551728	Years into their relationship, Tim and Millie find themselves at a crossroads as they move to the country. With tensions already flaring, an encounter with an unnatural force threatens to corrupt their lives, their love and their flesh.	Horror , Romance	2025-08-01	Together	17
+18	2025-07-29 19:56:44.603262	2025-07-29 19:56:44.603273	A brother and sister uncover a terrifying ritual at the secluded home of their new foster mother.	Horror , Mystery	2025-08-01	Bring Her Back	18
+19	2025-07-29 20:20:02.092401	2025-07-29 20:20:02.092405	The Bad Guys are struggling to find trust and acceptance in their newly minted lives as Good Guys, when they are pulled out of retirement and forced to do one last job by an all-female squad of criminals.	Action , Adventure , Comedy	2025-08-01	The Bad Guys 2	19
+20	2025-07-29 20:24:33.553894	2025-07-29 20:24:33.553899	A singular profile of pop superstar Robbie Williams, chronicling his meteoric rise, dramatic fall, and remarkable resurgence.	Fantasy , Comedy	2025-08-01	Better Man	20
+21	2025-07-29 20:29:25.534826	2025-07-29 20:29:25.534831	Alice returns to her childhood home after her mother's death, only to find the house is rigged with surveillance tracking her every move, as a sinister presence lurks, driving her towards a terrifying revelation.	Horror , Thriller ,Drama	2025-08-01	Other	21
+22	2025-07-29 20:38:48.616085	2025-07-29 20:38:48.616088	Ahmed returns to Egypt to settle, but his uncle's memory loss in a strange accident reveals a shocking truth - he leads a dangerous criminal empire.	Horror , Thriller ,Drama	2025-08-01	Ahmed & Ahmed	22
+23	2025-07-29 20:41:27.645098	2025-07-29 20:41:27.645122	Follows the story of Anna who grieves the death of her parents as she moves from New York to Florida to stay with her grandmother. She falls in with some other teens, but when she sees a grisly act of violence, she finds trapped.	Horror	2025-08-08	Eye for an Eye	23
+24	2025-07-29 20:45:33.317505	2025-07-29 20:45:33.31753	A female driven comedy about a woman who feels that she and her friends have grown apart. This is a be careful what you wish for film where a simple little lie begins to tear a whole community apart.	Commedy , Drama	2025-08-08	Sick Girl	24
 \.
 
 
@@ -347,6 +416,17 @@ COPY public.reviews (id, created_at, updated_at, comment, rating, movie, userid)
 11	2025-07-29 13:29:20.923152	2025-07-29 13:29:20.923156	good movie!	8	12	1
 12	2025-07-29 13:29:52.885703	2025-07-29 13:29:52.885708	good job!	9	13	1
 13	2025-07-29 13:30:17.553526	2025-07-29 13:30:17.553529	good job!	9	14	1
+14	2025-07-29 20:49:13.816459	2025-07-29 20:49:13.816467	Looks like a fun ride!	5	15	1
+15	2025-07-29 20:50:18.831664	2025-07-29 20:50:18.831669	The trailer gave me chills!	7	16	1
+16	2025-07-29 20:50:31.536002	2025-07-29 20:50:31.536008	looks good!	8	17	1
+17	2025-07-29 20:50:47.051236	2025-07-29 20:50:47.051243	i cant wait for it	7	18	1
+18	2025-07-29 20:50:58.228399	2025-07-29 20:50:58.228403	looks amazing	9	19	1
+19	2025-07-29 20:51:12.089554	2025-07-29 20:51:12.089558	cant wait	6	20	1
+20	2025-07-29 20:51:30.093717	2025-07-29 20:51:30.093721	omg	8	21	1
+21	2025-07-29 20:51:44.51083	2025-07-29 20:51:44.510835	it loks good but im not sure	5	22	1
+22	2025-07-29 20:52:06.365074	2025-07-29 20:52:06.365092	mid	7	23	1
+23	2025-07-29 20:52:50.231392	2025-07-29 20:52:50.231397	it took forever	8	24	1
+24	2025-07-29 20:53:15.72736	2025-07-29 20:53:15.727369	good!	7	24	1
 \.
 
 
@@ -375,28 +455,28 @@ COPY public.users (id, created_at, updated_at, email, pass, username) FROM stdin
 -- Name: actors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.actors_id_seq', 40, true);
+SELECT pg_catalog.setval('public.actors_id_seq', 65, true);
 
 
 --
 -- Name: directors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.directors_id_seq', 14, true);
+SELECT pg_catalog.setval('public.directors_id_seq', 24, true);
 
 
 --
 -- Name: movies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.movies_id_seq', 14, true);
+SELECT pg_catalog.setval('public.movies_id_seq', 24, true);
 
 
 --
 -- Name: reviews_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.reviews_id_seq', 13, true);
+SELECT pg_catalog.setval('public.reviews_id_seq', 24, true);
 
 
 --
