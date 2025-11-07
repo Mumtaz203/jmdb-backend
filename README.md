@@ -29,28 +29,33 @@ To get a local copy up and running, follow these simple steps.
 
 - **Java 17** or higher
 - **PostgreSQL** database installed
-- **Docker** (optional, for containerization)
+- **Docker** 
 
 ### Installing
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/UmutVci/imdb.git
+   git clone https://github.com/Mumtaz203/jmdb-backend.git
    ```
 
-2. Change into the project directory:
+2. Clean the package:
 
    ```bash
-   cd imdb
+   ./mvnw clean package
    ```
 
-3. Set up PostgreSQL locally or use Docker:
+3. Docker :
+   ```bash
+   docker-compose down -v
+   ```
+
+4. Set up PostgreSQL locally or use Docker:
 
     - **Using Docker** (Recommended):
 
       ```bash
-      docker-compose up
+      docker-compose up --build
       ```
 
     - **Without Docker**: Set up PostgreSQL on your machine and update the database connection details in the `application.yml` or `application.properties` file.
